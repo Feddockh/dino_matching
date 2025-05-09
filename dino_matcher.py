@@ -13,8 +13,8 @@ from torchvision import transforms
 import operator
 
 
-IMG1_PATH         = "rivendale_dataset/firefly_left/images/1739373919_100068096.png"
-IMG2_PATH         = "rivendale_dataset/ximea/images/1739373919_100068096.png"
+IMG1_PATH         = "1739373919_100068096_firefly_left.png"
+IMG2_PATH         = "1739373919_100068096_ximea.png"
 # IMG1_PATH         = "firefly_left.png"
 # IMG2_PATH         = "675.png"
 # IMG1_PATH         = "dog1.jpg"
@@ -25,7 +25,7 @@ SMALLER_EDGE      = 1024             # resize shorter edge before patching
 HALF_PRECISION    = False           # True if your GPU likes fp16
 DEVICE            = "cuda" if torch.cuda.is_available() else "cpu"
 # KEEP_FRACTION     = 0.005            # fraction of matches to draw
-RATIO_THRESH      = 0.95     # Lowe ratio threshold (smaller = stricter)
+RATIO_THRESH      = 0.7     # Lowe ratio threshold (smaller = stricter)
 TOP_MATCHES       = 300     # how many of the best matches to draw
 
 
@@ -214,8 +214,8 @@ if __name__ == "__main__":
     display_images(img1_rgb, img2_rgb)
 
     # Canny edges
-    # edge1 = canny_edges(img1_rgb, low=100, high=300)
-    # edge2 = canny_edges(img2_rgb, low=40, high=60, dilate=True)
+    # img1_rgb = canny_edges(img1_rgb, low=30, high=50)
+    # img2_rgb = canny_edges(img2_rgb, low=30, high=50)
     # display_images(img1_rgb, img2_rgb)
 
     # Create matcher
